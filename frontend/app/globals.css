@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #07111f;
+  --foreground: #e2e8f0;
+  --panel: rgba(9, 20, 38, 0.82);
+  --panel-border: rgba(148, 163, 184, 0.18);
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-slate-800;
+  }
+
+  body {
+    @apply min-h-screen bg-slate-950;
+    background-image:
+      radial-gradient(circle at top, rgba(34, 211, 238, 0.18), transparent 34%),
+      linear-gradient(180deg, #07111f 0%, #020617 100%);
+  }
+}
+
+@layer components {
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    @apply rounded-3xl p-5 shadow-[0_24px_80px_rgba(2,6,23,0.45)] backdrop-blur;
+  }
+
+  .metric-chip {
+    @apply rounded-2xl border border-white/10 bg-white/5 p-3;
+  }
+
+  .metric-chip span {
+    @apply block text-xs uppercase tracking-[0.18em] text-slate-400;
+  }
+
+  .metric-chip strong {
+    @apply mt-2 block text-sm font-semibold text-white;
+  }
+
+  .status-pill {
+    @apply inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em];
+  }
+
+  .status-pill-good {
+    @apply bg-emerald-500/15 text-emerald-300;
+  }
+
+  .status-pill-warn {
+    @apply bg-amber-500/15 text-amber-300;
+  }
+
+  .status-pill-danger {
+    @apply bg-rose-500/15 text-rose-300;
+  }
+
+  .status-pill-neutral {
+    @apply bg-cyan-500/15 text-cyan-200;
+  }
+
+  .action-button {
+    @apply rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-100 transition hover:border-cyan-300/60 hover:bg-cyan-300/15;
+  }
+
+  .list-row {
+    @apply flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200;
+  }
+
+  .list-dot {
+    @apply h-2.5 w-2.5 rounded-full bg-cyan-300;
+  }
+}
